@@ -1,39 +1,51 @@
 <!DOCTYPE html>
- <html lang="fr">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>L'évolution des Jeux Vidéo</title>
-     <style>
-         body {
-             font-family: Arial, sans-serif;
-             margin: 0;
-             padding: 0;
-         }
-         header {
-             text-align: center;
-             background-color: #333;
-             color: white;
-             padding: 1em;
-         }
-         section {
-             padding: 1em;
-         }
-         footer {
-             text-align: center;
-             padding: 1em;
-             background-color: #333;
-             color: white;
-         }
-     </style>
- </head>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'évolution des Jeux Vidéo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 1em;
+        }
+        section {
+            padding: 1em;
+        }
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #333;
+            color: white;
+        }
+        button {
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
 <body>
 
     <header>
         <h1>Un Voyage à Travers le Temps</h1>
     </header>
 
-    <section>
+    <section> 
         <h2>Introduction au Voyage à Travers les Ères du Jeu Vidéo</h2>
         <p>Depuis les premiers clignotements des pixels dans les salles d'arcade
             jusqu'aux mondes virtuels immersifs d'aujourd'hui, le jeu vidéo a parcouru un
@@ -79,11 +91,32 @@
             par une diversité technologique et une accessibilité accrue, rendant les jeux vidéo plus
             inclusifs et variés que jamais.</p>
         <img src="https://i.imgur.com/IEXeIlu.jpg" alt="Image Moderne">
+        <button onclick="goBack()">Retour</button> 
+        <button onclick="readContent()">Lire le contenu</button>
     </section>
 
     <footer>
         <p>© 2023 #EPITECH JAM.</p>
     </footer>
 
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    
+        function readContent() {
+            var sectionText = document.querySelector('section').innerText;
+            speak(sectionText);
+        }
+    
+        function speak(text) {
+            var synth = window.speechSynthesis;
+            var utterThis = new SpeechSynthesisUtterance(text);
+            utterThis.lang = 'fr-FR';
+            synth.speak(utterThis);
+        }
+    </script>
+
 </body>
 </html>
+
